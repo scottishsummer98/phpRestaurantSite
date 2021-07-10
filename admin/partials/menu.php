@@ -1,3 +1,8 @@
+<?php
+    include '../config/constants.php';
+    include 'login-check.php'; 
+?>
+
 <html>
     <head>
         <title>Food Order Website - Home Page</title>
@@ -13,6 +18,7 @@
                 <li><a href="manage-category.php">Category</a></li>
                 <li><a href="manage-food.php">Food</a></li>
                 <li><a href="manage-order.php">Order</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </div>
     </div>

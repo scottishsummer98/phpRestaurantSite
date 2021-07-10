@@ -26,6 +26,9 @@ table tr th {
 table tr td {   
     padding: 1%;
 }
+.tbl-30 {
+    width: 30%;
+}
 .btn-primary {
     background-color: #3742fa;
     padding: 1%;
@@ -38,7 +41,7 @@ table tr td {
 }
 .btn-secondary {
     background-color: #00ff2a;
-    padding: 3%;
+    padding: 1%;
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -48,13 +51,19 @@ table tr td {
 }
 .btn-danger {
     background-color: #ff0000;
-    padding: 3%;
+    padding: 1%;
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 .btn-danger:hover {
     background-color: #ca0000;
+}
+.success {
+    color: #2ed573;
+}
+.error {
+    color: #ff4757;
 }
 
 
@@ -97,4 +106,13 @@ table tr td {
 .footer {
     background-color: #ff4757;
     color: white;
+}
+
+
+/* CSS for Login */
+.login {
+    border: 1px solid grey;
+    width: 20%;
+    margin: 10% auto;
+    padding: 2%;
 }
