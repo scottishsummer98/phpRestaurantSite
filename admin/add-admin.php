@@ -10,7 +10,7 @@
                 unset($_SESSION['add']);
             }
         ?>
-
+        <!-- Add Admin form starts -->
         <form action="" method="POST">
             <table class="tbl-30">
                 <tr>
@@ -32,32 +32,33 @@
                 </tr>
             </table>
         </form>
+        <!-- Add Admin form ends -->
+        <?php
+
+            //1.Getting data from form
+            if(isset($_POST['submit']))
+            {
+
+                $fullname = $_POST['fullname'];
+                $username = $_POST['username'];
+                $password = md5($_POST['password']);
+
+                $sql = "INSERT INTO `tbl_admin`(`fullname`, `username`, `password`)
+                        VALUES ('$fullname','$username','$password')";
+                
+                $result = mysqli_query($myDB, $sql) or die(mysqli_error());
+
+                if($result==TRUE) {
+                    $_SESSION['add'] = "<div class='success'>Admin added successfully</div>";;
+                    header("location:".SITEURL.'admin/manage-admin.php');
+                } else {
+                    $_SESSION['add'] = "<div class='error'>Failed to Add Admin</div>";
+                    header("location:".SITEURL.'admin/add-admin.php');
+                }
+            }
+
+        ?>
     </div>
 </div>
 
 <?php include "partials/footer.php"; ?>
-
-<?php
-
-    //1.Getting data from form
-        if(isset($_POST['submit'])){
-
-        $fullname = $_POST['fullname'];
-        $username = $_POST['username'];
-        $password = md5($_POST['password']);
-
-        $sql = "INSERT INTO `tbl_admin`(`fullname`, `username`, `password`)
-                VALUES ('$fullname','$username','$password')";
-        
-        $result = mysqli_query($myDB, $sql) or die(mysqli_error());
-
-        if($result==TRUE) {
-            $_SESSION['add'] = "Admin Added Successfully";
-            header("location:".SITEURL.'admin/manage-admin.php');
-        } else {
-            $_SESSION['add'] = "Failed To Add Admin";
-            header("location:".SITEURL.'admin/add-admin.php');
-        }
-    }
-
-?>

@@ -11,7 +11,7 @@ if($result==true){
     $_SESSION['delete']="<div class='success'>Admin Deleted Successfully</div>";
     header('location:'.SITEURL.'admin/manage-admin.php');
 } else {
-    $_SESSION['delete']= "<div class='error'>Failed to Delete.Please try again</div>";
+    $_SESSION['delete']= "<div class='error'>Failed to Delete Admin. Please try again</div>";
     header('location:'.SITEURL.'admin/manage-admin.php');
 }
 
