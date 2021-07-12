@@ -14,7 +14,7 @@
                 <tr>
                     <td>Description: </td>
                     <td>
-                        <textarea name="description" placeholder="Description of the food"></textarea>
+                        <textarea name="description" cols="22" rows="5" placeholder="Description of the food"></textarea>
                     </td>
                 </tr>
             </table>
