@@ -120,7 +120,7 @@
 
                             if($remove==false)
                             {
-                                $_SESSION['failed-to-remove'] = "<div class='error'>Failed to Remove Current Image</div>";
+                                $_SESSION['remove-failed'] = "<div class='error'>Failed to Remove Current Image</div>";
                                 header('location:'.SITEURL.'admin/manage-category.php');
                                 die();
                             }
