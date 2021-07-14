@@ -19,7 +19,7 @@
                     $image_name = $row['image_name'];
                     ?>
 
-                        <a href="<?php echo SITEURL; ?>htmlpages/category-foods.php">
+                        <a href="<?php echo SITEURL; ?>htmlpages/category-foods.php?category_id=<?php echo $id; ?>">
                             <div class="box-3 float-container">
                                 <?php
                                     if($image_name=="")
@@ -33,8 +33,7 @@
                                         <?php
                                     }
                                 ?>
-                                <img src="../images/pizza.jpg" alt="Pizza" class="img-responsive img-curve">
-                                <h3 class="float-text text-white">Pizza</h3>
+                                <h3 class="float-text text-white"><?php echo $title; ?></h3>
                             </div>
                         </a>
 
@@ -46,14 +45,6 @@
                 echo "<div class='error'>Category Not Found</div>";
             }
             ?>
-
-            <a href="<?php echo SITEURL; ?>htmlpages/category-foods.php">
-            <div class="box-3 float-container">
-                <img src="../images/pizza.jpg" alt="Pizza" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Pizza</h3>
-            </div>
-            </a>
             
             <div class="clearfix"></div>
         </div>
