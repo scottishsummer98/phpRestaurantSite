@@ -49,15 +49,14 @@
                             }
                         ?>
                     </div>
-    
+
                     <div class="food-menu-desc">
                         <h3><?php echo $title; ?></h3>
-                        <input type="hidden" name="food" value="<?php echo $title; ?>">
+                        <input type="hidden" name="title" value="<?php echo $title; ?>">
                         <p class="food-price">$<?php echo $price; ?></p>
                         <input type="hidden" name="price" value="<?php echo $price; ?>">
                         <div class="order-label">Quantity</div>
-                        <input type="number" name="qty" class="input-responsive" value="1" required>
-                        
+                        <input type="number" name="qty" class="input-responsive" value="1" required>       
                     </div>
 
                 </fieldset>
@@ -65,7 +64,7 @@
                 <fieldset>
                     <legend>Delivery Details</legend>
                     <div class="order-label">Full Name</div>
-                    <input type="text" name="full-name" placeholder="Enter Full-Name" class="input-responsive" required>
+                    <input type="text" name="full_name" placeholder="Enter Full-Name" class="input-responsive" required>
 
                     <div class="order-label">Phone Number</div>
                     <input type="tel" name="contact" placeholder="Enter Phone Number" class="input-responsive" required>
@@ -80,37 +79,43 @@
                 </fieldset>
 
             </form>
-
+            
             <?php
                 if(isset($_POST['submit']))
                 {
-                    $food = $_POST['food'];
+                    $food = $_POST['title'];
                     $price = $_POST['price'];
                     $qty = $_POST['qty'];
-                    $total = $price * $qty;
-                    $order_date = date("Y-m-d h:i:sa");
-                    $status = "Ordered";
 
-                    $customer_name = $_POST['full-name'];
+                    $total = $price * $qty;
+
+                    $order_date = date("Y-m-d h:i:sa");
+                    
+                    $status = "Ordered";
+                    
+                    $customer_name = $_POST['full_name'];
                     $customer_contact = $_POST['contact'];
                     $customer_email = $_POST['email'];
                     $customer_address = $_POST['address'];
                     
-                    $sql2 = "INSERT INTO `tbl_order` SET
-                            `food`= '$food',
-                            `price` = '$price',
-                            `qty` = '$qty',
-                            `total` = '$total',
-                            `order_date` = '$order_date',
-                            `status` = $status',
-                            `customer_name` = '$customer_name',
-                            `customer_contact` = '$customer_contact',
-                            `customer_email` = '$customer_email',
-                            `customer_address = '$customer_address'
-                        ";
+                    $sql2 = "INSERT INTO tbl_order SET
+                            food = '$food',
+                            price = $price,
+                            qty = $qty,
+                            total = $total,
+                            order_date = '$order_date',
+                            status = '$status',
+                            customer_name = '$customer_name',
+                            customer_contact = '$customer_contact',
+                            customer_email = '$customer_email',
+                            customer_address = '$customer_address'
+                    ";
 
+                    // var_dump($sql2); die();
+                    
                     $result2 = mysqli_query($myDB, $sql2);
-                    if($result2==true)
+
+                    if($result2 == true)
                     {
                         $_SESSION['order'] = "<div class='success text-center'>Food Ordered Succesfully</div>";
                         header('location:'.SITEURL.'htmlpages/');
@@ -121,11 +126,6 @@
                         header('location:'.SITEURL.'htmlpages/');
                     }
                 }
-                else
-                {
-
-                }
-
             ?>
 
         </div>
